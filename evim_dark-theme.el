@@ -4,25 +4,48 @@
 ;;; A theme called evim_dark
 ;;; Code:
 
+
+(unless (>= emacs-major-version 24)
+  (error "The evim-dark theme requires Emacs 24 or later!"))
+
+
 (deftheme evim_dark "DOCSTRING for evim_dark")
+
+(let ((background  "#ffffff")
+        (macros      "#cf34eb")
+        (keywords    "#ffee71")
+        (strings     "#ffb18f")
+        (builtin     "#97def4")
+        (numbers     "#e3a47f")
+        (comment     "#58aac1")
+        (constants   "#ffffff")
+        (functions   "#00ccff")
+        (variables   "#e3e5e4")
+        (punctuation "#65f26a"))
+
   (custom-theme-set-faces 'evim_dark
-   '(default ((t (:foreground "#ffffff" :background "#000000" ))))
-   '(cursor ((t (:background "#ffffff" ))))
-   '(fringe ((t (:background "#282828" ))))
-   '(mode-line ((t (:foreground "#282828" :background "#7c6f64" ))))
-   '(region ((t (:background "#8d8d8d" ))))
-   '(secondary-selection ((t (:background "#3e3834" ))))
-   '(font-lock-builtin-face ((t (:foreground "#97def4" ))))
-   '(font-lock-comment-face ((t (:foreground "#58aac1" ))))
-   '(font-lock-function-name-face ((t (:foreground "#b8bb26" ))))
-   '(font-lock-keyword-face ((t (:foreground "#ffee71" ))))
-   '(font-lock-string-face ((t (:foreground "#ffb18f" ))))
-   '(font-lock-type-face ((t (:foreground "#65f26a" ))))
-   '(font-lock-constant-face ((t (:foreground "#ffffff" ))))
-   '(font-lock-variable-name-face ((t (:foreground "#e3e5e4" ))))
+   `(default ((t (:foreground "#ffffff" :background "#000000" ))))
+   `(cursor ((t (:background "#ffffff" ))))
+   `(fringe ((t (:background "#282828" ))))
+   `(mode-line ((t (:foreground "#282828" :background "#7c6f64" ))))
+   `(region ((t (:background "#8d8d8d" ))))
+   `(secondary-selection ((t (:background "#3e3834" ))))
+
+   ;; -- font faces <mix style>
+   `(font-lock-builtin-face           ((t (:foreground ,builtin ))))
+   `(font-lock-comment-face           ((t (:foreground ,comment ))))
+   `(font-lock-comment-delimiter-face ((t (:foreground ,comment))))
+   `(font-lock-constant-face          ((t (:foreground ,constants ))))
+   `(font-lock-function-name-face     ((t (:foreground ,functions))))
+   `(font-lock-keyword-face           ((t (:foreground ,keywords ))))
+   `(font-lock-preprocessor-face      ((t (:foreground ,macros ))))
+   `(font-lock-string-face            ((t (:foreground ,strings ))))
+   `(font-lock-type-face              ((t (:foreground ,punctuation ))))
+   `(font-lock-variable-name-face     ((t (:foreground ,variables ))))
+   `(highlight-numbers-number         ((t (:foreground ,numbers))))
+
    '(minibuffer-prompt ((t (:foreground "#f0f44d" :bold t ))))
-   '(font-lock-warning-face ((t (:foreground "red" :bold t ))))
-   )
+   '(font-lock-warning-face ((t (:foreground "red" :bold t ))))))
 
 ;;;###autoload
 (and load-file-name
