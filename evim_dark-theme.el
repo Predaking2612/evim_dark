@@ -1,10 +1,12 @@
 ;;; evim_dark-theme.el --- evim_dark
-;;; Version: 1.0
-;;; Commentary:
-;;; A theme called evim_dark
+
+;;; Author: Dhruv Patel
+;;; Version: 0.01
+;;; Filename: evim_dark-theme
+;;; Package-Requires: ((emacs "24"))
+;;; License: Apache-2.0
+
 ;;; Code:
-
-
 (unless (>= emacs-major-version 24)
   (error "The evim-dark theme requires Emacs 24 or later!"))
 
